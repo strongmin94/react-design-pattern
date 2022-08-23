@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+React design pattern
 
-## Getting Started
+1. Presentation Component - Container Component
 
-First, run the development server:
+- React에서 가장 유명하고 가장 기본적인 디자인 패턴이다.
+- 데이터의 처리와 출력을 분리한다 (기능과 UI를 분리).
+- Container Component : 데이터를 처리하는 역할을 담당한다.
+- Presentation Component: 데이트를 출력하는 역할을 담당한다.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+2. Component - Custom hooks
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 기존 Presentation Component - Container Component 패턴에서 로직을 hooks로 따로 관리하는 디자인 패턴이다.
+- hooks로 로직을 관리하게 되면서 UI재사용을 넘어 로직까지 재사용 가능하게 된다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Atomic 디자인 패턴
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- 가장 작은 단위(원자 단위)로 쪼개고 합치며 마치 레고블럭을 쌓듯이 개발하는 디자인 패턴이다.
+- 여기서 원자단위는 가장 작은 단위의 컴포넌트를 말한다. (ex. Input, Button, Checkbox, Select 등...)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+제가 제작한 React 프로젝트는 기본적으로 위의 세 가지 디자인 패턴을 사용하여 개발을 진행합니다.
+우선 Component는 제작에 있어서 재사용에 용이하고 딱 하나의 기능만을 실행하는 방향으로 제작합니다.
+Atomic 패턴의 원칙에 맞춰 최대한 작은 단위로 개발하려는 의도입니다.
+또, 데이터를 받아 단순 렌더링만 처리해주는 Presenter와 그 데이터들을 관리할 Container의 개념으로 나누어
+Presentation Component - Container Component 패턴을 사용하여 개발합니다.
+현재는 많이들 안 쓰는 개념이지만 기능과 UI를 분리한다는 관점에서 유용하게 사용하고 있습니다.
+여기서 UI만 분리하여 사용하는 게 아쉬워서 로직 또한 따로 Custom hooks로 따로 분리하여 사용하고 있습니다.
+이렇게 사용하면 UI뿐만 아니라 로직 또한 관리에 용이하며 중복되는 로직을 재사용할 수 있으므로 유용하게 사용하고 있습니다.
+결과적으로 (Presentation Component - Container Component) - Custom hooks 패턴으로 개발을 진행하고 있습니다.
 
-## Learn More
+4. 사용중인 (Presentation Component - Container Component) - Custom hooks 패턴 예시
 
-To learn more about Next.js, take a look at the following resources:
+- src/modules/main
+- src/modules/signin
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. 사용중인 Atomic 패턴 예시
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- src/components/\*

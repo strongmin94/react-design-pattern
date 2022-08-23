@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.item {
+  color: gray;
+}
+
+.item::before {
+  content: "#";
+}
