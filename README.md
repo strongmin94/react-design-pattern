@@ -25,9 +25,9 @@ Presentation Component - Container Component 패턴을 사용하여 개발합니
 현재는 많이들 안 쓰는 개념이지만 기능과 UI를 분리한다는 관점에서 유용하게 사용하고 있습니다.
 여기서 UI만 분리하여 사용하는 게 아쉬워서 로직 또한 따로 Custom hooks로 따로 분리하여 사용하고 있습니다.
 이렇게 사용하면 UI뿐만 아니라 로직 또한 관리에 용이하며 중복되는 로직을 재사용할 수 있으므로 유용하게 사용하고 있습니다.
-결과적으로 (Presentation Component - Container Component) - Custom hooks 패턴으로 개발을 진행하고 있습니다.
+결과적으로 (Container Component - Custom hooks) - Presentation Component 패턴으로 개발을 진행하고 있습니다.
 
-4. 사용중인 (Presentation Component - Container Component) - Custom hooks 패턴 예시
+4. 사용중인 (Container Component - Custom hooks) - Presentation Component 패턴 예시
 
 - src/modules/main
 - src/modules/signin
